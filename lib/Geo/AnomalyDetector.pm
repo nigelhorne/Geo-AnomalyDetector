@@ -5,6 +5,27 @@ use warnings;
 
 use Statistics::Basic qw(mean stddev);
 
+=head1 NAME
+
+Geo::AnomalyDetector - Detect anomalies in geospatial coordinate datasets
+
+=head1 SYNOPSIS
+
+This module analyzes latitude and longitude data points to identify anomalies based on their distance from the mean location.
+
+  use Geo::AnomalyDetector;
+ 
+  my $detector = Geo::AnomalyDetector->new(threshold => 3);
+  my $coords = [ [37.7749, -122.4194], [40.7128, -74.0060], [35.6895, 139.6917] ];
+  my $anomalies = $detector->detect_anomalies($coords);
+  print "Anomalies: " . join ", ", map { "($_->[0], $_->[1])" } @$anomalies;
+
+=head1	VERSION
+
+0.01
+
+=cut
+
 our $VERSION = '0.01';
 
 sub new {
@@ -19,28 +40,28 @@ sub new {
 
 sub detect_anomalies {
 	my ($self, $coordinates) = @_;
-	
+
 	my @distances;
 	my $mean_lat = mean(map { $_->[0] } @$coordinates);
 	my $mean_lon = mean(map { $_->[1] } @$coordinates);
-	
+
 	foreach my $coord (@$coordinates) {
 		my ($lat, $lon) = @$coord;
 		die if(!defined($lat) || !defined($lon));
 		my $distance = distance($lat, $lon, $mean_lat, $mean_lon, 'K');
 		push @distances, $distance;
 	}
-	
+
 	my $mean_dist = mean(@distances);
 	my $std_dist = stddev(@distances);
-	
+
 	my @anomalies;
 	for my $i (0 .. $#distances) {
 		if (abs($distances[$i] - $mean_dist) > ($self->{threshold} * $std_dist)) {
 			push @anomalies, $coordinates->[$i];
 		}
 	}
-	
+
 	return \@anomalies;
 }
 
@@ -88,25 +109,7 @@ sub _rad2deg {
 }
 
 1;
-1;
 __END__
-
-=head1 NAME
-
-Geo::AnomalyDetector - Detect anomalies in geospatial coordinate datasets
-
-=head1 SYNOPSIS
-
-  use Geo::AnomalyDetector;
-  
-  my $detector = Geo::AnomalyDetector->new(threshold => 3);
-  my $coords = [ [37.7749, -122.4194], [40.7128, -74.0060], [35.6895, 139.6917] ];
-  my $anomalies = $detector->detect_anomalies($coords);
-  print "Anomalies: " . join ", ", map { "($_->[0], $_->[1])" } @$anomalies;
-
-=head1 DESCRIPTION
-
-This module analyzes latitude and longitude data points to identify anomalies based on their distance from the mean location.
 
 =head1 AUTHOR
 
@@ -115,3 +118,5 @@ Your Name
 =head1 LICENSE
 
 This module is released under the same terms as Perl itself.
+
+=cut
