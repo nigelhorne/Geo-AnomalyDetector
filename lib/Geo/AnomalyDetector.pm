@@ -65,7 +65,6 @@ sub detect_anomalies {
 	return \@anomalies;
 }
 
-
 sub distance {
 	my ($lat1, $lon1, $lat2, $lon2, $unit) = @_;
 	my $theta = $lon1 - $lon2;
@@ -108,15 +107,58 @@ sub _rad2deg {
 	return ($rad * 180 / $pi);
 }
 
-1;
-__END__
-
 =head1 AUTHOR
 
-Your Name
+Nigel Horne, C<< <njh at nigelhorne.com> >>
 
-=head1 LICENSE
+=head1 BUGS
 
-This module is released under the same terms as Perl itself.
+=head1 SEE ALSO
+
+=head1 SUPPORT
+
+This module is provided as-is without any warranty.
+
+Please report any bugs or feature requests to C<bug-geo-info at rt.cpan.org>,
+or through the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Geo-AnomalyDetector>.
+I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
+
+You can find documentation for this module with the perldoc command.
+
+    perldoc Geo::AnomalyDetector
+
+You can also look for information at:
+
+=over 4
+
+=item * MetaCPAN
+
+L<https://metacpan.org/dist/Geo-AnomalyDetector>
+
+=item * RT: CPAN's request tracker
+
+L<https://rt.cpan.org/NoAuth/Bugs.html?Dist=Geo-AnomalyDetector>
+
+=item * CPAN Testers' Matrix
+
+L<http://matrix.cpantesters.org/?dist=Geo-AnomalyDetector>
+
+=item * CPAN Testers Dependencies
+
+L<http://deps.cpantesters.org/?module=Geo::AnomalyDetector>
+
+=back
+
+=head1 LICENSE AND COPYRIGHT
+
+Copyright 2025 Nigel Horne.
+
+This program is released under the following licence: GPL2
 
 =cut
+
+1;
+
+__END__
