@@ -8,7 +8,7 @@ WriteMakefile(
     LICENSE      => 'perl',
     PREREQ_PM    => {
         'Statistics::Basic' => 0,
-        'Math::Trig'        => 0,
+        # 'Math::Trig'        => 0,
     },
     CONFIGURE_REQUIRES => {
         'ExtUtils::MakeMaker' => 6.64,

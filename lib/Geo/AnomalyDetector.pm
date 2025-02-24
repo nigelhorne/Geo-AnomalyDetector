@@ -2,51 +2,92 @@ package Geo::AnomalyDetector;
 
 use strict;
 use warnings;
+
 use Statistics::Basic qw(mean stddev);
-use Math::Trig qw(great_circle_distance deg2rad);
 
 our $VERSION = '0.01';
 
 sub new {
-    my ($class, %args) = @_;
-    my $self = {
-        threshold => $args{threshold} || 3,
-        unit      => $args{unit} || 'kilometers',
-    };
-    bless $self, $class;
-    return $self;
+	my ($class, %args) = @_;
+	my $self = {
+		threshold => $args{threshold} || 3,
+		unit => $args{unit} || 'K',
+	};
+	bless $self, $class;
+	return $self;
 }
 
 sub detect_anomalies {
-    my ($self, $coordinates) = @_;
-    
-    my @distances;
-    my $mean_lat = mean(map { $_->[0] } @$coordinates);
-    my $mean_lon = mean(map { $_->[1] } @$coordinates);
-    
-    foreach my $coord (@$coordinates) {
-        my ($lat, $lon) = @$coord;
-        my $distance = great_circle_distance(
-            deg2rad($lon), deg2rad(90 - $lat),
-            deg2rad($mean_lon), deg2rad(90 - $mean_lat),
-            $self->{unit}
-        );
-        push @distances, $distance;
-    }
-    
-    my $mean_dist = mean(@distances);
-    my $std_dist  = stddev(@distances);
-    
-    my @anomalies;
-    for my $i (0 .. $#distances) {
-        if (abs($distances[$i] - $mean_dist) > $self->{threshold} * $std_dist) {
-            push @anomalies, $coordinates->[$i];
-        }
-    }
-    
-    return \@anomalies;
+	my ($self, $coordinates) = @_;
+	
+	my @distances;
+	my $mean_lat = mean(map { $_->[0] } @$coordinates);
+	my $mean_lon = mean(map { $_->[1] } @$coordinates);
+	
+	foreach my $coord (@$coordinates) {
+		my ($lat, $lon) = @$coord;
+		die if(!defined($lat) || !defined($lon));
+		my $distance = distance($lat, $lon, $mean_lat, $mean_lon, 'K');
+		push @distances, $distance;
+	}
+	
+	my $mean_dist = mean(@distances);
+	my $std_dist = stddev(@distances);
+	
+	my @anomalies;
+	for my $i (0 .. $#distances) {
+		if (abs($distances[$i] - $mean_dist) > ($self->{threshold} * $std_dist)) {
+			push @anomalies, $coordinates->[$i];
+		}
+	}
+	
+	return \@anomalies;
 }
 
+
+sub distance {
+	my ($lat1, $lon1, $lat2, $lon2, $unit) = @_;
+	my $theta = $lon1 - $lon2;
+	my $dist = sin(_deg2rad($lat1)) * sin(_deg2rad($lat2)) + cos(_deg2rad($lat1)) * cos(_deg2rad($lat2)) * cos(_deg2rad($theta));
+	$dist = _acos($dist);
+	$dist = _rad2deg($dist);
+	$dist = $dist * 60 * 1.1515;
+	if ($unit eq 'K') {
+		$dist = $dist * 1.609344;	# number of kilometres in a mile
+	} elsif ($unit eq 'N') {
+		$dist = $dist * 0.8684;
+	}
+	return ($dist);
+}
+
+my $pi = atan2(1,1) * 4;
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#:::  This function get the arccos function using arctan function   :::
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+sub _acos {
+	my ($rad) = @_;
+	my $ret = atan2(sqrt(1 - $rad**2), $rad);
+	return $ret;
+}
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#:::  This function converts decimal degrees to radians			 :::
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+sub _deg2rad {
+	my ($deg) = @_;
+	return ($deg * $pi / 180);
+}
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#:::  This function converts radians to decimal degrees			 :::
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+sub _rad2deg {
+	my ($rad) = @_;
+	return ($rad * 180 / $pi);
+}
+
+1;
 1;
 __END__
 

@@ -6,8 +6,8 @@ use warnings;
 use Test::Most;
 use Geo::AnomalyDetector;
 
-# Create a new anomaly detector with a threshold of 3 standard deviations
-my $detector = Geo::AnomalyDetector->new(threshold => 3);
+# Create a new anomaly detector with a threshold of 1 standard deviation
+my $detector = Geo::AnomalyDetector->new(threshold => 1);
 
 # Sample data: mostly clustered points with one outlier
 my $coords = [
