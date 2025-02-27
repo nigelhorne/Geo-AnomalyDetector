@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 use Statistics::Basic qw(mean stddev);
+# use Math::Trig;
 
 =head1 NAME
 
@@ -52,6 +53,7 @@ sub detect_anomalies {
 		my ($lat, $lon) = (ref($coord) eq 'ARRAY') ? @{$coord} : ($coord->latitude(), $coord->longitude());
 		die if(!defined($lat) || !defined($lon));
 		my $distance = distance($lat, $lon, $mean_lat, $mean_lon, 'K');
+		# ::diag($distance, ', ', Math::Trig::great_circle_distance($lon, $lat, $mean_lon, $mean_lat));
 		push @distances, $distance;
 	}
 

@@ -15,7 +15,7 @@ my $detector = Geo::AnomalyDetector->new(threshold => 1);
 my $coords = [
 	[37.7749, -122.4194],	# San Francisco
 	# [37.7750, -122.4195],	# Near San Francisco
-	Geo::Location::Point->new({ latitude => 37.7750, longitude => -112.4195 }),
+	Geo::Location::Point->new({ latitude => 37.7750, longitude => -122.4195 }),
 	[37.7751, -122.4196],	# Near San Francisco
 	[0.0000, 0.0000],	# Outlier
 ];
