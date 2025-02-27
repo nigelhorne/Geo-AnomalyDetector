@@ -65,6 +65,16 @@ sub detect_anomalies {
 	return \@anomalies;
 }
 
+=head2 distance
+
+Calculate the distance between two geographical points using latitude and longitude.
+Supports distance in kilometres (K), nautical miles (N), or miles.
+
+From L<http://www.geodatasource.com/developers/perl>
+FIXME:  use Math::Trig
+
+=cut
+
 sub distance {
 	my ($lat1, $lon1, $lat2, $lon2, $unit) = @_;
 	my $theta = $lon1 - $lon2;
