@@ -23,6 +23,7 @@ WriteMakefile(
 		'ExtUtils::MakeMaker' => 6.64,
 	},
 	TEST_REQUIRES => {
+		'Geo::Location::Point',
 		'Test::Most' => 0,
 	}, dist => $dist, clean => {
 		FILES => 'Geo-AnomalyDetector-*'

@@ -20,6 +20,9 @@ This module analyzes latitude and longitude data points to identify anomalies ba
   my $anomalies = $detector->detect_anomalies($coords);
   print "Anomalies: " . join ", ", map { "($_->[0], $_->[1])" } @$anomalies;
 
+Each co-ordinate can be either a two eleement array of [latitude, longitude] or an object that has
+C<latitude> and C<longitude> methods.
+
 =head1	VERSION
 
 0.01
@@ -42,11 +45,11 @@ sub detect_anomalies {
 	my ($self, $coordinates) = @_;
 
 	my @distances;
-	my $mean_lat = mean(map { $_->[0] } @$coordinates);
-	my $mean_lon = mean(map { $_->[1] } @$coordinates);
+	my $mean_lat = mean(map { (ref($_) eq 'ARRAY') ? $_->[0] : $_->latitude() } @$coordinates);
+	my $mean_lon = mean(map { (ref($_) eq 'ARRAY') ? $_->[1] : $_->longitude() } @$coordinates);
 
 	foreach my $coord (@$coordinates) {
-		my ($lat, $lon) = @$coord;
+		my ($lat, $lon) = (ref($coord) eq 'ARRAY') ? @{$coord} : ($coord->latitude(), $coord->longitude());
 		die if(!defined($lat) || !defined($lon));
 		my $distance = distance($lat, $lon, $mean_lat, $mean_lon, 'K');
 		push @distances, $distance;
@@ -124,6 +127,8 @@ Nigel Horne, C<< <njh at nigelhorne.com> >>
 =head1 BUGS
 
 =head1 SEE ALSO
+
+L<Geo::Location::Point>
 
 =head1 SUPPORT
 
