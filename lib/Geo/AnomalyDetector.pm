@@ -4,7 +4,8 @@ use strict;
 use warnings;
 
 use Statistics::Basic qw(mean stddev);
-# use Math::Trig;
+use Math::Trig;
+use Geo::Inverse;
 
 =head1 NAME
 
@@ -19,7 +20,7 @@ This module analyzes latitude and longitude data points to identify anomalies ba
   my $detector = Geo::AnomalyDetector->new(threshold => 3);
   my $coords = [ [37.7749, -122.4194], [40.7128, -74.0060], [35.6895, 139.6917] ];
   my $anomalies = $detector->detect_anomalies($coords);
-  print "Anomalies: " . join ", ", map { "($_->[0], $_->[1])" } @$anomalies;
+  print "Anomalies: " . join ", ", map { "($_->[0], $_->[1])" } @{$anomalies};
 
 Each co-ordinate can be either a two eleement array of [latitude, longitude] or an object that has
 C<latitude> and C<longitude> methods.
@@ -46,14 +47,17 @@ sub detect_anomalies {
 	my ($self, $coordinates) = @_;
 
 	my @distances;
-	my $mean_lat = mean(map { (ref($_) eq 'ARRAY') ? $_->[0] : $_->latitude() } @$coordinates);
-	my $mean_lon = mean(map { (ref($_) eq 'ARRAY') ? $_->[1] : $_->longitude() } @$coordinates);
+	my $mean_lat = mean(map { (ref($_) eq 'ARRAY') ? $_->[0] : $_->latitude() } @{$coordinates});
+	my $mean_lon = mean(map { (ref($_) eq 'ARRAY') ? $_->[1] : $_->longitude() } @{$coordinates});
 
-	foreach my $coord (@$coordinates) {
+	my $inverse = Geo::Inverse->new();
+
+	foreach my $coord (@{$coordinates}) {
 		my ($lat, $lon) = (ref($coord) eq 'ARRAY') ? @{$coord} : ($coord->latitude(), $coord->longitude());
 		die if(!defined($lat) || !defined($lon));
 		my $distance = distance($lat, $lon, $mean_lat, $mean_lon, 'K');
-		# ::diag($distance, ', ', Math::Trig::great_circle_distance($lon, $lat, $mean_lon, $mean_lat));
+		# ::diag($distance, ', ', Math::Trig::great_circle_distance($lon, $lat, $mean_lon, $mean_lat), ', ',
+			# $inverse->inverse($lat, $lon, $mean_lat, $mean_lon));
 		push @distances, $distance;
 	}
 
