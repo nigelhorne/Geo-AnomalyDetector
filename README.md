@@ -35,7 +35,7 @@ Nigel Horne, `<njh at nigelhorne.com>`
 
 This module is provided as-is without any warranty.
 
-Please report any bugs or feature requests to `bug-geo-info at rt.cpan.org`,
+Please report any bugs or feature requests to `bug-geo-anomalydetector at rt.cpan.org`,
 or through the web interface at
 [http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Geo-AnomalyDetector](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Geo-AnomalyDetector).
 I will be notified, and then you'll
@@ -68,11 +68,3 @@ You can also look for information at:
 Copyright 2025 Nigel Horne.
 
 This program is released under the following licence: GPL2
-
-# POD ERRORS
-
-Hey! **The above document had some coding errors, which are explained below:**
-
-- Around line 153:
-
-    You forgot a '=back' before '=head1'

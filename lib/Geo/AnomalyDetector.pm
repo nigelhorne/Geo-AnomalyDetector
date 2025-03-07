@@ -150,11 +150,13 @@ Nigel Horne, C<< <njh at nigelhorne.com> >>
 
 =item * L<Math::Trig>
 
+=back
+
 =head1 SUPPORT
 
 This module is provided as-is without any warranty.
 
-Please report any bugs or feature requests to C<bug-geo-info at rt.cpan.org>,
+Please report any bugs or feature requests to C<bug-geo-anomalydetector at rt.cpan.org>,
 or through the web interface at
 L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Geo-AnomalyDetector>.
 I will be notified, and then you'll
