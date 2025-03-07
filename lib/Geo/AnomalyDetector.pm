@@ -50,7 +50,7 @@ sub detect_anomalies {
 	my $mean_lat = mean(map { (ref($_) eq 'ARRAY') ? $_->[0] : $_->latitude() } @{$coordinates});
 	my $mean_lon = mean(map { (ref($_) eq 'ARRAY') ? $_->[1] : $_->longitude() } @{$coordinates});
 
-	my $inverse = Geo::Inverse->new();
+	# my $inverse = Geo::Inverse->new();
 
 	die if(!defined($mean_lat) || !defined($mean_lon));
 
