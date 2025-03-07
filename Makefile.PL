@@ -27,7 +27,9 @@ WriteMakefile(
 	},
 	TEST_REQUIRES => {
 		'Geo::Location::Point' => 0,
+		'Test::DescribeMe' => 0,
 		'Test::Most' => 0,
+		'Test::Needs' => 0,
 	}, dist => $dist, clean => {
 		FILES => 'Geo-AnomalyDetector-*'
 	}, META_MERGE => {	# https://perldoc.perl.org/CPAN::Meta::Spec
