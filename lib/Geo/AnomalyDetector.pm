@@ -27,11 +27,11 @@ C<latitude> and C<longitude> methods.
 
 =head1	VERSION
 
-0.01
+0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
 	my ($class, %args) = @_;

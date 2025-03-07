@@ -18,7 +18,7 @@ Each co-ordinate can be either a two element array of \[latitude, longitude\] or
 
 # VERSION
 
-0.01
+0.02
 
 # AUTHOR
 
