@@ -5,7 +5,7 @@ use warnings;
 
 use Statistics::Basic qw(mean stddev);
 use Math::Trig;
-use Geo::Inverse;
+# use Geo::Inverse;
 
 =head1 NAME
 
