@@ -11,7 +11,7 @@ This module analyzes latitude and longitude data points to identify anomalies ba
     my $detector = Geo::AnomalyDetector->new(threshold => 3);
     my $coords = [ [37.7749, -122.4194], [40.7128, -74.0060], [35.6895, 139.6917] ];
     my $anomalies = $detector->detect_anomalies($coords);
-    print "Anomalies: " . join ", ", map { "($_->[0], $_->[1])" } @{$anomalies};
+    print 'Anomalies: ', join ', ', map { ($_->[0], $_->[1]) } @{$anomalies};
 
 Each co-ordinate can be either a two element array of \[latitude, longitude\] or an object that has
 `latitude` and `longitude` methods.
