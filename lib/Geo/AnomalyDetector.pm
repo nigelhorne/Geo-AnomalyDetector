@@ -3,6 +3,8 @@ package Geo::AnomalyDetector;
 use strict;
 use warnings;
 
+# TODO: GIS::Distance
+
 use Statistics::Basic qw(mean stddev);
 use Math::Trig;
 # use Geo::Inverse;
