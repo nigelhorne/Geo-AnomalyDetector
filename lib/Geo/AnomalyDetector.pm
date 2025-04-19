@@ -5,8 +5,9 @@ use warnings;
 
 # TODO: GIS::Distance
 
-use Statistics::Basic qw(mean stddev);
+use Params::Get;
 use Math::Trig;
+use Statistics::Basic qw(mean stddev);
 # use Geo::Inverse;
 
 =head1 NAME
@@ -37,16 +38,30 @@ our $VERSION = '0.02';
 
 sub new {
 	my ($class, %args) = @_;
-	my $self = {
+
+	return bless {
 		threshold => $args{threshold} || 3,
 		unit => $args{unit} || 'K',
-	};
-	bless $self, $class;
-	return $self;
+	}, $class;
 }
 
-sub detect_anomalies {
-	my ($self, $coordinates) = @_;
+=head1 detect_anomalies
+
+Identify outlier geographic coordinates based on their distance from the average location of a dataset.
+
+Takes an array reference of coordinate pairs.
+Each coordinate can be an array reference [lat, lon] or an object with latitude() and longitude() methods.
+
+It returns a reference to an array of coordinates considered anomalous based on their distance from the mean.
+
+=cut
+
+sub detect_anomalies
+{
+	my $self = shift;
+	my $params = Params::Get::get_params('coordinates', @_);
+
+	my $coordinates = $params->{'coordinates'};
 
 	my @distances;
 	my $mean_lat = mean(map { (ref($_) eq 'ARRAY') ? $_->[0] : $_->latitude() } @{$coordinates});

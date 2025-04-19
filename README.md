@@ -20,6 +20,15 @@ Each co-ordinate can be either a two element array of \[latitude, longitude\] or
 
 0.02
 
+# detect\_anomalies
+
+Identify outlier geographic coordinates based on their distance from the average location of a dataset.
+
+Takes an array reference of coordinate pairs.
+Each coordinate can be an array reference \[lat, lon\] or an object with latitude() and longitude() methods.
+
+It returns a reference to an array of coordinates considered anomalous based on their distance from the mean.
+
 # AUTHOR
 
 Nigel Horne, `<njh at nigelhorne.com>`

@@ -19,8 +19,9 @@ WriteMakefile(
 		: ()),
 	PREREQ_PM => {
 		'ExtUtils::MakeMaker' => 6.64,
-		'Statistics::Basic' => 0,
 		'Math::Trig' => 0,
+		'Params::Get' => 0,
+		'Statistics::Basic' => 0,
 	},
 	CONFIGURE_REQUIRES => {
 		'ExtUtils::MakeMaker' => 6.64,
