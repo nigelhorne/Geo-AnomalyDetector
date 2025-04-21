@@ -20,7 +20,30 @@ Each co-ordinate can be either a two element array of \[latitude, longitude\] or
 
 0.02
 
-# detect\_anomalies
+# SUBROUTINES/METHODS
+
+## new
+
+Creates a Geo::AnomalyDetecter object.
+
+It takes two optional parameters:
+
+- `threshold`
+
+    A number to hint at what consitutues an anomaly.
+    The larger the number,
+    the larger the distance to be called an anomaly,
+    there will be fewer matches.
+    The default is 3.
+
+- `units`
+
+    The unit to be used internally for measurement.
+    Can be `M` or `K`.
+    The default is `K`,
+    this should have no effect on the determination of outliers.
+
+## detect\_anomalies
 
 Identify outlier geographic coordinates based on their distance from the average location of a dataset.
 

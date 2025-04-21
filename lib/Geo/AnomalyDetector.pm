@@ -36,6 +36,35 @@ C<latitude> and C<longitude> methods.
 
 our $VERSION = '0.02';
 
+=head1 SUBROUTINES/METHODS
+
+=head2 new
+
+Creates a Geo::AnomalyDetecter object.
+
+It takes two optional parameters:
+
+=over 4
+
+=item * C<threshold>
+
+A number to hint at what consitutues an anomaly.
+The larger the number,
+the larger the distance to be called an anomaly,
+there will be fewer matches.
+The default is 3.
+
+=item * C<units>
+
+The unit to be used internally for measurement.
+Can be C<M> or C<K>.
+The default is C<K>,
+this should have no effect on the determination of outliers.
+
+=back
+
+=cut
+
 sub new {
 	my ($class, %args) = @_;
 
@@ -45,7 +74,7 @@ sub new {
 	}, $class;
 }
 
-=head1 detect_anomalies
+=head2 detect_anomalies
 
 Identify outlier geographic coordinates based on their distance from the average location of a dataset.
 
