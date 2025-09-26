@@ -3,6 +3,7 @@ Revision history for Geo-AnomalyDetector
 0.03
 	Use Params::Get and Return::Set
 	Formally document the API
+	Added a test dashboard
 
 0.02	Fri Mar  7 08:18:25 EST 2025
 	Allow coordinates to be objects as well as two-element arrays

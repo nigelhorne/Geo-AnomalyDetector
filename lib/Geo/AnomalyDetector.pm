@@ -243,6 +243,8 @@ Nigel Horne, C<< <njh at nigelhorne.com> >>
 
 =over 4
 
+=item * Test coverage report: L<https://nigelhorne.github.io/CGI-Info/coverage/>
+
 =item * L<Geo::Location::Point>
 
 =item * L<Math::Trig>
