@@ -62,9 +62,6 @@ It returns a reference to an array of coordinates considered anomalous based on 
 
 #### OUTPUT
 
-- Argument error: croak
-- No matches found: \[\]
-
     {
       'type' => 'arrayref',  # A list of coordinates
       'schema' => {
@@ -76,6 +73,9 @@ It returns a reference to an array of coordinates considered anomalous based on 
           'type' => 'number', 'min' => -180.0, 'max' => 180.0 }
       }
     }
+
+- Argument error: croak
+- No matches found: \[\]
 
 # AUTHOR
 

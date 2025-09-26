@@ -95,14 +95,6 @@ It returns a reference to an array of coordinates considered anomalous based on 
 
 =head4	OUTPUT
 
-=over 4
-
-=item * Argument error: croak
-
-=item * No matches found: []
-
-=back
-
   {
     'type' => 'arrayref',  # A list of coordinates
     'schema' => {
@@ -114,6 +106,14 @@ It returns a reference to an array of coordinates considered anomalous based on 
         'type' => 'number', 'min' => -180.0, 'max' => 180.0 }
     }
   }
+
+=over 4
+
+=item * Argument error: croak
+
+=item * No matches found: []
+
+=back
 
 =cut
 
