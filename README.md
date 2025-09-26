@@ -40,8 +40,8 @@ It takes two optional parameters:
 
     The unit to be used internally for measurement.
     Can be `M` or `K`.
-    The default is `K`,
-    this should have no effect on the determination of outliers.
+    The default is `K`.
+    This should have no effect on the determination of outliers.
 
 ## detect\_anomalies
 
@@ -51,6 +51,31 @@ Takes an array reference of coordinate pairs.
 Each coordinate can be an array reference \[lat, lon\] or an object with latitude() and longitude() methods.
 
 It returns a reference to an array of coordinates considered anomalous based on their distance from the mean.
+
+### API SPECIFICATION
+
+#### INPUT
+
+    {
+      'coordinates' => { type => 'arrayref' }     # Each element can be either a coordinate pair or an object
+    }
+
+#### OUTPUT
+
+Argument error: croak
+No matches found: \[\]
+
+    {
+      'type' => 'arrayref',  # A list of coordinates
+      'schema' => {
+        'type' => 'arrayref',
+        'min' => 2,  # Each coordinate is two numbers
+        'max' => 2,
+        'schema' => {
+          # FIXME: specify that the latitude (the first number) is between -90 and 90
+          'type' => 'number', 'min' => -180.0, 'max' => 180.0 }
+      }
+    }
 
 # AUTHOR
 

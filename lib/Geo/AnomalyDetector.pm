@@ -8,6 +8,7 @@ use warnings;
 use Params::Get 0.13;
 use Math::Trig;
 use Return::Set 0.03;
+use Params::Validate::Strict 0.12;
 use Statistics::Basic qw(mean stddev);
 # use Geo::Inverse;
 
@@ -89,7 +90,7 @@ It returns a reference to an array of coordinates considered anomalous based on 
 =head4	INPUT
 
   {
-    'coordinates' => { type => 'number', min => -90, max => 90 },
+    'coordinates' => { type => 'arrayref' }	# Each element can be either a coordinate pair or an object
   }
 
 =head4	OUTPUT
@@ -114,24 +115,15 @@ No matches found: []
 sub detect_anomalies
 {
 	my $self = shift;
-        # my $params = Params::Validate::Strict::validate_strict({
-		# args => Params::Get::get_params('coordinates', @_),
-		# schema => {
-			# 'coordinates' => {
-				# 'type' => 'arrayref',
-				# schema => {
-					# 'type' => 'arrayref',
-					# 'min' => 2,  # Each coordinate is two numbers
-					# 'max' => 2,
-					# 'schema' => {
-						# # FIXME: specify that the latitude (the first number) is between -90 and 90
-						# 'type' => 'number', 'min' => -180.0, 'max' => 180.0
-					# }
-				# }
-			# }
-		# }
-	# });
-	my $params = Params::Get::get_params('coordinates', @_);
+        my $params = Params::Validate::Strict::validate_strict({
+		args => Params::Get::get_params('coordinates', @_),
+		schema => {
+			'coordinates' => {
+				'type' => 'arrayref',
+			}
+		}
+	});
+	# my $params = Params::Get::get_params('coordinates', @_);
 
 	my $coordinates = $params->{'coordinates'};
 

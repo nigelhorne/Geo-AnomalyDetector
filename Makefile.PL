@@ -21,6 +21,7 @@ WriteMakefile(
 		'ExtUtils::MakeMaker' => 6.64,
 		'Math::Trig' => 0,
 		'Params::Get' => 0.13,
+		'Params::Validate::Strict' => 0.12,
 		'Return::Set' => 0.03,
 		'Statistics::Basic' => 0,
 	},
