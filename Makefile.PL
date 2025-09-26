@@ -20,7 +20,8 @@ WriteMakefile(
 	PREREQ_PM => {
 		'ExtUtils::MakeMaker' => 6.64,
 		'Math::Trig' => 0,
-		'Params::Get' => 0,
+		'Params::Get' => 0.13,
+		'Return::Set' => 0.03,
 		'Statistics::Basic' => 0,
 	},
 	CONFIGURE_REQUIRES => {

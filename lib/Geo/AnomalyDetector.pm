@@ -5,8 +5,9 @@ use warnings;
 
 # TODO: GIS::Distance
 
-use Params::Get;
+use Params::Get 0.13;
 use Math::Trig;
+use Return::Set 0.03;
 use Statistics::Basic qw(mean stddev);
 # use Geo::Inverse;
 
@@ -58,8 +59,8 @@ The default is 3.
 
 The unit to be used internally for measurement.
 Can be C<M> or C<K>.
-The default is C<K>,
-this should have no effect on the determination of outliers.
+The default is C<K>.
+This should have no effect on the determination of outliers.
 
 =back
 
@@ -83,11 +84,53 @@ Each coordinate can be an array reference [lat, lon] or an object with latitude(
 
 It returns a reference to an array of coordinates considered anomalous based on their distance from the mean.
 
+=head3	API SPECIFICATION
+
+=head4	INPUT
+
+  {
+    'coordinates' => { type => 'number', min => -90, max => 90 },
+  }
+
+=head4	OUTPUT
+
+Argument error: croak
+No matches found: []
+
+  {
+    'type' => 'arrayref',  # A list of coordinates
+    'schema' => {
+      'type' => 'arrayref',
+      'min' => 2,  # Each coordinate is two numbers
+      'max' => 2,
+      'schema' => {
+        # FIXME: specify that the latitude (the first number) is between -90 and 90
+        'type' => 'number', 'min' => -180.0, 'max' => 180.0 }
+    }
+  }
+
 =cut
 
 sub detect_anomalies
 {
 	my $self = shift;
+        # my $params = Params::Validate::Strict::validate_strict({
+		# args => Params::Get::get_params('coordinates', @_),
+		# schema => {
+			# 'coordinates' => {
+				# 'type' => 'arrayref',
+				# schema => {
+					# 'type' => 'arrayref',
+					# 'min' => 2,  # Each coordinate is two numbers
+					# 'max' => 2,
+					# 'schema' => {
+						# # FIXME: specify that the latitude (the first number) is between -90 and 90
+						# 'type' => 'number', 'min' => -180.0, 'max' => 180.0
+					# }
+				# }
+			# }
+		# }
+	# });
 	my $params = Params::Get::get_params('coordinates', @_);
 
 	my $coordinates = $params->{'coordinates'};
@@ -125,7 +168,18 @@ sub detect_anomalies
 		}
 	}
 
-	return \@anomalies;
+	return Return::Set::set_return(\@anomalies, {
+		'type' => 'arrayref',	# A list of coordinates
+		'schema' => {
+			'type' => 'arrayref',
+			'min' => 2,	# Each coordinate is two numbers
+			'max' => 2,
+			'schema' => {
+				# FIXME: specify that the latitude (the first number) is between -90 and 90
+				'type' => 'number', 'min' => -180.0, 'max' => 180.0 }
+			}
+		}
+	);
 }
 
 # Now use Math::Trig.  I tried Geo::Inverse, but that always throws messages about undefined variables
