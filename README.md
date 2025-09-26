@@ -62,8 +62,8 @@ It returns a reference to an array of coordinates considered anomalous based on 
 
 #### OUTPUT
 
-Argument error: croak
-No matches found: \[\]
+- Argument error: croak
+- No matches found: \[\]
 
     {
       'type' => 'arrayref',  # A list of coordinates

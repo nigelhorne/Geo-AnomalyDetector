@@ -95,8 +95,13 @@ It returns a reference to an array of coordinates considered anomalous based on 
 
 =head4	OUTPUT
 
-Argument error: croak
-No matches found: []
+=over 4
+
+=item * Argument error: croak
+
+=item * No matches found: []
+
+=back
 
   {
     'type' => 'arrayref',  # A list of coordinates
