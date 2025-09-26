@@ -85,7 +85,7 @@ Nigel Horne, `<njh at nigelhorne.com>`
 
 # SEE ALSO
 
-- Test coverage report: [https://nigelhorne.github.io/CGI-Info/coverage/](https://nigelhorne.github.io/CGI-Info/coverage/)
+- Test coverage report: [https://nigelhorne.github.io/Geo-AnomalyDetector/coverage/](https://nigelhorne.github.io/Geo-AnomalyDetector/coverage/)
 - [Geo::Location::Point](https://metacpan.org/pod/Geo%3A%3ALocation%3A%3APoint)
 - [Math::Trig](https://metacpan.org/pod/Math%3A%3ATrig)
 
