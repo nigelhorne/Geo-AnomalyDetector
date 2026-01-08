@@ -1,0 +1,259 @@
+{
+   "runs" : [
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882586.06985,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1767882586.06951,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882586.23455,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1767882586.23431,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882586.39934,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1767882586.39902,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882586.56373,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1767882586.56339,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882586.72573,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1767882586.72552,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882586.88672,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1767882586.88651,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882587.05035,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1767882587.0501,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882587.21506,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1767882587.2148,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882587.40091,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1767882587.39296,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882589.29438,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1767882587.59961,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882587.74152,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "-e",
+         "start" : 1767882587.74141,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882588.04368,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "t/30-basics.t",
+         "start" : 1767882588.04127,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882588.31104,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "t/comment-spelling.t",
+         "start" : 1767882588.31078,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882588.54719,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "t/eof.t",
+         "start" : 1767882588.54689,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882588.78363,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "t/eol.t",
+         "start" : 1767882588.78336,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882589.01788,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "t/pod-cm.t",
+         "start" : 1767882589.01762,
+         "version" : "0.02"
+      },
+      {
+         "OS" : "linux",
+         "abstract" : "Detect anomalies in geospatial coordinate datasets",
+         "dir" : "/home/runner/work/Geo-AnomalyDetector/Geo-AnomalyDetector",
+         "finish" : 1767882589.25429,
+         "name" : "Geo-AnomalyDetector",
+         "perl" : "5.40.3",
+         "run" : "t/pod.t",
+         "start" : 1767882589.25401,
+         "version" : "0.02"
+      }
+   ],
+   "summary" : {
+      "Total" : {
+         "branch" : {
+            "covered" : 11,
+            "error" : 3,
+            "percentage" : 78.5714285714286,
+            "total" : 14,
+            "uncoverable" : 0
+         },
+         "condition" : {
+            "covered" : 4,
+            "error" : 6,
+            "percentage" : 40,
+            "total" : 10,
+            "uncoverable" : 0
+         },
+         "statement" : {
+            "covered" : 53,
+            "percentage" : 100,
+            "total" : 53
+         },
+         "subroutine" : {
+            "covered" : 9,
+            "percentage" : 100,
+            "total" : 9
+         },
+         "total" : {
+            "covered" : 77,
+            "error" : 9,
+            "percentage" : 89.5348837209302,
+            "total" : 86,
+            "uncoverable" : 0
+         }
+      },
+      "blib/lib/Geo/AnomalyDetector.pm" : {
+         "branch" : {
+            "covered" : 11,
+            "error" : 3,
+            "percentage" : 78.5714285714286,
+            "total" : 14,
+            "uncoverable" : 0
+         },
+         "condition" : {
+            "covered" : 4,
+            "error" : 6,
+            "percentage" : 40,
+            "total" : 10,
+            "uncoverable" : 0
+         },
+         "statement" : {
+            "covered" : 53,
+            "percentage" : 100,
+            "total" : 53
+         },
+         "subroutine" : {
+            "covered" : 9,
+            "percentage" : 100,
+            "total" : 9
+         },
+         "total" : {
+            "covered" : 77,
+            "error" : 9,
+            "percentage" : 89.5348837209302,
+            "total" : 86,
+            "uncoverable" : 0
+         }
+      }
+   }
+}
