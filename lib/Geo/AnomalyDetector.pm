@@ -32,11 +32,11 @@ C<latitude> and C<longitude> methods.
 
 =head1	VERSION
 
-0.02
+0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 SUBROUTINES/METHODS
 
@@ -289,7 +289,7 @@ L<http://deps.cpantesters.org/?module=Geo::AnomalyDetector>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2025 Nigel Horne.
+Copyright 2026 Nigel Horne.
 
 This program is released under the following licence: GPL2
 

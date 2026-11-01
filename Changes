@@ -1,6 +1,6 @@
 Revision history for Geo-AnomalyDetector
 
-0.03
+0.03	Sun Nov  1 12:51:50 PM EST 2026
 	Use Params::Get and Return::Set
 	Formally document the API
 	Added a test dashboard
