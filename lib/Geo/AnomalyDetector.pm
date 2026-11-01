@@ -42,7 +42,7 @@ our $VERSION = '0.02';
 
 =head2 new
 
-Creates a Geo::AnomalyDetecter object.
+Creates a Geo::AnomalyDetector object.
 
 It takes two optional parameters:
 
@@ -72,7 +72,7 @@ sub new {
 
 	return bless {
 		threshold => $args{threshold} || 3,
-		unit => $args{unit} || 'K',
+		unit => $args{units} || $args{unit} || 'K',	# unit was the only name read before 0.03
 	}, $class;
 }
 
